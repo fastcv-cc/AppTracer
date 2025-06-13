@@ -46,17 +46,20 @@ dependencies {
 }
 
 publishing {
+    val libName = "AppTracer"
+    val artifactIdValue = "app-tracer"
+    val versionValue = "1.0.0"
     publications {
         create<MavenPublication>("mavenJava") {
             afterEvaluate { artifact(tasks.getByName("bundleReleaseAar")) }
             groupId = "cc.fastcv"
-            artifactId = "flash-text-view"
-            version = "1.0.0"
+            artifactId = artifactIdValue
+            version = versionValue
 
             pom {
-                name = "FlashTextView"
-                description = "flash text view"
-                url = "https://github.com/fastcv-cc/FlashTextView"
+                name = libName
+                description = "app tracer"
+                url = "https://github.com/fastcv-cc/$libName"
                 licenses {
                     license {
                         name = "The Apache License, Version 2.0"
@@ -70,10 +73,10 @@ publishing {
                     }
                 }
                 scm {
-                    url = "https://github.com/fastcv-cc/FlashTextView"
-                    connection = "scm:git:git://github.com/fastcv-cc/FlashTextView.git"
+                    url = "https://github.com/fastcv-cc/$libName"
+                    connection = "scm:git:git://github.com/fastcv-cc/$libName.git"
                     developerConnection =
-                        "scm:git:ssh://git@github.com:fastcv-cc/FlashTextView.git"
+                        "scm:git:ssh://git@github.com:fastcv-cc/$libName.git"
                 }
             }
 
